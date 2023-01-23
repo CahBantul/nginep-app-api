@@ -1,4 +1,5 @@
 node_modules/
+build/
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,windows,macos
 

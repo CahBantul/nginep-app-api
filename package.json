@@ -1,22 +1,24 @@
 {
-  "name": "booking-app",
+  "name": "nginep-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc && npm run start",
+    "start": "node ./build/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CahBantul/booking-app.git"
+    "url": "git+https://github.com/CahBantul/nginep-app-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CahBantul/booking-app/issues"
+    "url": "https://github.com/CahBantul/nginep-app-api/issues"
   },
-  "homepage": "https://github.com/CahBantul/booking-app#readme",
+  "homepage": "https://github.com/CahBantul/nginep-app-api#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
