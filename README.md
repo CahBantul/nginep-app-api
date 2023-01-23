@@ -101,6 +101,14 @@ List things you need to use the software and how to install them.
    the app running on [http://localhost:3001](http://localhost:3001)
    <p align="right">(<a href="#top" >back to top</a>)</p>
 
+<!-- USAGE EXAMPLES -->
+
+## Usage
+
+For postman documentation of this api _please refer to the [Documentation](https://documenter.getpostman.com/view/11537842/2s8ZDbUfM2)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -146,4 +154,3 @@ List resources helpful and I would like to give credit to.
 - [Les Coding seri expressjs dan typescript](https://www.youtube.com/watch?v=IwJ2wflrbzM&list=PLnQvfeVegcJZHhImGvDpnp0P725Ykx4Qt)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-````
