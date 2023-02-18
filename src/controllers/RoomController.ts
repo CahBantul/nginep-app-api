@@ -7,9 +7,9 @@ import IController from './ControllerInterface';
 class RoomController implements IController {
   async index(req: Request, res: Response, next: NextFunction) {
     try {
-      const hotels = await Room.find();
+      const rooms = await Room.find();
 
-      return response(res, 200, hotels, { message: 'success' });
+      return response(res, 200, rooms, { message: 'success' });
     } catch (error: any) {
       return response(res, 500, [], { message: error.message });
     }
@@ -59,11 +59,31 @@ class RoomController implements IController {
 
       if (!updatedRoom)
         return response(res, 404, [], {
-          message: 'hotel not found',
+          message: 'room not found',
         });
 
       return response(res, 201, [updatedRoom], {
-        message: 'hotel has been updated',
+        message: 'room has been updated',
+      });
+    } catch (error: any) {
+      return response(res, 500, [], { message: error.message });
+    }
+  }
+
+  async updateRoomAvaibility(req: Request, res: Response, next: NextFunction) {
+    console.log(req.body.dates);
+    try {
+      await Room.updateOne(
+        { 'roomNumbers._id': req.params.id },
+        {
+          $push: {
+            'roomNumbers.$.unavailableDates': req.body.dates,
+          },
+        }
+      );
+
+      return response(res, 201, [], {
+        message: 'room has been updated',
       });
     } catch (error: any) {
       return response(res, 500, [], { message: error.message });

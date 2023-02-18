@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import Hotel from '../models/Hotel';
+import Room from '../models/Room';
 import { response } from '../utils/response';
 import IController from './ControllerInterface';
 
@@ -88,8 +89,8 @@ class HotelController implements IController {
   }
 
   async countByCity(req: Request, res: Response, next: NextFunction) {
-    const cities = (req.query.cities as string).split(',');
     try {
+      const cities = (req.query.cities as string).split(',');
       const list = await Promise.all(
         cities.map((city) => {
           return Hotel.countDocuments({ city });
@@ -126,6 +127,24 @@ class HotelController implements IController {
           message: 'success',
         }
       );
+    } catch (error: any) {
+      return response(res, 500, [], { message: error.message });
+    }
+  }
+
+  async getHotelRooms(req: Request, res: Response, next: NextFunction) {
+    try {
+      const hotel = await Hotel.findById(req.params.id);
+      const rooms = (await hotel?.rooms) || [];
+      const list = await Promise.all(
+        rooms.map((room) => {
+          return Room.findById(room);
+        })
+      );
+
+      return response(res, 200, list, {
+        message: 'success',
+      });
     } catch (error: any) {
       return response(res, 500, [], { message: error.message });
     }

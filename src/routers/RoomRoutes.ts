@@ -10,6 +10,7 @@ class RoomRoutes extends BaseRoutes {
     this.router.post('/:hotelid', verifyAdmin, RoomController.store);
     this.router.get('/:id', RoomController.show);
     this.router.put('/:id', verifyAdmin, RoomController.update);
+    this.router.put('/availability/:id', RoomController.updateRoomAvaibility);
     this.router.delete('/:hotelid/:id', verifyAdmin, RoomController.delete);
   }
 }
