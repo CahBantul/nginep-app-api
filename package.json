@@ -26,7 +26,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.8.4"
+    "mongoose": "^6.8.4",
+    "netlify-lambda": "^0.4.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
